@@ -34,6 +34,7 @@ export const fruitsCart = createSlice({
         }
     }
 })
+console.log(fruitsCart);
 
 export const { addOne, removeOne } = fruitsCart.actions
 export default fruitsCart.reducer
