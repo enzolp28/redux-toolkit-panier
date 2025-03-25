@@ -1,9 +1,11 @@
 import React from 'react'
 import FruityCart from './FruityCart'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { addOne, removeOne } from '../../features/fruitsCart'
 
 export default function Fruity() {
     const fruits = useSelector(state => state.fruits)
+    const dispatch = useDispatch()
     console.log(fruits);
 
     return (
@@ -28,9 +30,11 @@ export default function Fruity() {
                         </div>
                         <div className='flex gap-2'>
                             <button
+                                onClick={() => dispatch(addOne(fruit))}
                                 className='w-full bg-green-600 hover:bg-green-500 text-slate-100 p-1 rounded text-lg'
                             >Ajouter</button>
                             <button
+                                onClick={() => dispatch(removeOne(fruit.id))}
                                 className='w-full bg-red-600 hover:bg-red-500 text-slate-100 p-1 rounded text-lg'
                             >Supprimer</button>
                         </div>
